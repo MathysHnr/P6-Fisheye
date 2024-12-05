@@ -1,37 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <title>Fisheye - photographe</title>
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <a href="index.html">
+        <img
+          src="assets/images/logo.png"
+          class="logo"
+          alt="Fisheye Home page"
+        />
+      </a>
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <div class="photographer-info">
+          <h1 id="photographer-name"></h1>
+          <p id="photographer-location"></p>
+          <p id="photographer-tagline"></p>
+        </div>
+        <button class="contact_button" onclick="displayModal()">
+          Contactez-moi
+        </button>
+        <img src="" alt="" id="photographer-portrait" />
+      </div>
+
+      <div class="sort-container">
+        <label for="sort-select">Trier par</label>
+        <select id="sort-select" aria-label="Order by">
+          <option value="popularity" selected>Popularité</option>
+          <option value="date">Date</option>
+          <option value="title">Titre</option>
+        </select>
+      </div>
+
+      <div class="media-section">
+        <!-- This will be populated dynamically with JavaScript -->
       </div>
     </main>
+
+    <!-- Modal de contact -->
     <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
+      <div class="modal">
+        <header>
+          <h2>Contactez-moi<br />Mimi Keel</h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
+        <form>
+          <!-- Contenu du formulaire -->
+        </form>
+      </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox_modal" class="lightbox-modal">
+      <!-- Le contenu de la lightbox sera inséré ici dynamiquement -->
+    </div>
+
+    <script src="scripts/templates/photographer.js"></script>
+    <script src="scripts/factories/mediaFactory.js"></script>
+    <script src="scripts/pages/photographer.js"></script>
+    <script src="scripts/utils/lightbox.js"></script>
+    <script src="scripts/utils/contactForm.js"></script>
   </body>
 </html>
