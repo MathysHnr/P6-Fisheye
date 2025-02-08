@@ -43,32 +43,22 @@
       </div>
 
       <div class="media-section">
-        <!-- This will be populated dynamically with JavaScript -->
+        <!-- Médias dynamiques -->
+      </div>
+      <div id="lightbox_modal" class="lightbox-modal" style="display: none">
+        <div class="lightbox-content-container">
+          <!-- Le contenu dynamique sera inséré ici -->
+        </div>
+      </div>
+      <div class="photographer-footer">
+        <p id="total-likes">Total Likes: 0</p>
+        <p id="daily-rate">Tarif par jour: <span id="rate-value"></span>€</p>
       </div>
     </main>
-
-    <!-- Modal de contact -->
-    <div id="contact_modal">
-      <div class="modal">
-        <header>
-          <h2>Contactez-moi<br />Mimi Keel</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-        <form>
-          <!-- Contenu du formulaire -->
-        </form>
-      </div>
-    </div>
-
-    <!-- Lightbox -->
-    <div id="lightbox_modal" class="lightbox-modal">
-      <!-- Le contenu de la lightbox sera inséré ici dynamiquement -->
-    </div>
-
-    <script src="scripts/templates/photographer.js"></script>
-    <script src="scripts/factories/mediaFactory.js"></script>
-    <script src="scripts/pages/photographer.js"></script>
-    <script src="scripts/utils/lightbox.js"></script>
-    <script src="scripts/utils/contactForm.js"></script>
+    <script src="scripts/templates/photographer.js" type="module"></script>
+    <script src="scripts/pages/photographer-page.js" type="module"></script>
+    <script src="scripts/factories/mediaFactory.js" type="module"></script>
+    <script src="scripts/utils/lightbox.js" type="module"></script>
+    <script src="scripts/utils/contactForm.js" type="module"></script>
   </body>
 </html>

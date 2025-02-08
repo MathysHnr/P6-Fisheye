@@ -41,5 +41,4 @@ function photographerTemplate(data) {
   return { name, picture, getUserCardDOM };
 }
 
-// Rendre la fonction disponible globalement
-window.photographerTemplate = photographerTemplate;
+export default photographerTemplate;
