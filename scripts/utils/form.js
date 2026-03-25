@@ -1,12 +1,51 @@
 export const openCloseFormContact = () => {
     const contactBtn = document.querySelector(".btn_cta");
     const contactModal = document.querySelector(".modal_wrapper");
-    const closeModal = document.querySelector(".btn_close");
-    contactBtn.addEventListener("click", () => {
+    const closeModalBtn = document.querySelector(".btn_close");
+    const form = document.querySelector('.modal_form form');
+
+    const focusableElements = contactModal.querySelectorAll('input, textarea, button, [tabindex]:not([tabindex="-1"])');
+    const firstFocusable = focusableElements[0];
+    const lastFocusable = focusableElements[focusableElements.length - 1];
+
+    const openModal = () => {
         contactModal.style.display = "flex";
-        closeModal.focus();
+        document.body.style.overflow = "hidden";
+        closeModalBtn.focus();
+    };
+
+    const closeModal = () => {
+        contactModal.style.display = "none";
+        document.body.style.overflow = "";
+        contactBtn.focus();
+    };
+
+    contactBtn.addEventListener("click", () => openModal());
+    closeModalBtn.addEventListener("click", () => closeModal());
+
+    // Close on Escape key
+    document.addEventListener("keyup", e => {
+        if (e.key === "Escape" && contactModal.style.display === "flex") {
+            closeModal();
+        }
     });
-    closeModal.addEventListener("click", () => contactModal.style.display = "none");
+
+    // Focus trap inside modal
+    contactModal.addEventListener("keydown", e => {
+        if (e.key !== "Tab") return;
+
+        if (e.shiftKey) {
+            if (document.activeElement === firstFocusable) {
+                e.preventDefault();
+                lastFocusable.focus();
+            }
+        } else {
+            if (document.activeElement === lastFocusable) {
+                e.preventDefault();
+                firstFocusable.focus();
+            }
+        }
+    });
 };
 
 export const validateForm = () => {

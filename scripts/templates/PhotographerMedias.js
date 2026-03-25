@@ -15,8 +15,8 @@ export default class PhotographerMedias {
                         <source src="./assets/images/photographers/samplePhotos-Small/${this.photographer.name}/${media.video}" type="video/mp4">
                     </video>`;
             return `
-                    <article class="gallery_card">                           
-                        <a href="#" data-media=${media.id} role="link" aria-label="View media large">
+                    <article class="gallery_card">
+                        <a href="#" data-media=${media.id} aria-label="${media.title}, vue agrandie">
                             <figure>${mediaContent}</figure>
                         </a>
                         <figcaption>

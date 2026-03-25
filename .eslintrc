@@ -1,9 +1,8 @@
 {
     "root": true,
     "parserOptions": {
-        "ecmaVersion": 2018,
-        "sourceType": "module",
-        "parser": "babel-eslint"
+        "ecmaVersion": 2022,
+        "sourceType": "module"
     },
     "env": {
         "browser": true,
@@ -15,6 +14,6 @@
     "rules": {
         "no-extra-semi": "off",
         "no-useless-escape": "off",
-        "no-console": "error" 
+        "no-console": "warn"
     }
 }
